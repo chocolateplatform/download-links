@@ -6,6 +6,11 @@ $.getJSON('version.json', function(data){
   let url = new URL(window.location.href);
   let sdk = url.searchParams.get('sdk');
 
+  var version = data.stable;
+  if (url.searchParams.get('version') === 'latest') {
+    version = data.latest;
+  }
+
   if (sdk === 'manual') {
     var download = SDK_FILE;
     var ext = 'zip';
@@ -17,7 +22,7 @@ $.getJSON('version.json', function(data){
     return;
   }
 
-  let redir = `${BASE_URL}/${download}_v${data.latest}.${ext}`
+  let redir = `${BASE_URL}/${download}_v${version}.${ext}`
   window.location.replace(redir);
 });
 
