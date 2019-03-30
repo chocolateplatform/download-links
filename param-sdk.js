@@ -11,6 +11,7 @@ $.getJSON('version.json', function(data){
     alert('SDK version is required.');
     return;
   } else if (version === 'latest') {
+    console.log(data);
     version = data[sdk].latest;
   }
 
