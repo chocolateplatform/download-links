@@ -8,9 +8,10 @@ $.getJSON('version.json', function(data){
 
   var version = url.searchParams.get('version');
   if(!version) {
-    version = data.stable;
-  } else if (url.searchParams.get('version') === 'latest') {
-    version = data.latest;
+    alert('SDK version is required.');
+    return;
+  } else if (version === 'latest') {
+    version = data[sdk].latest;
   }
 
   if (sdk === 'manual') {
