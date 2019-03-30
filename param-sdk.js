@@ -6,8 +6,6 @@ $.getJSON('version.json', function(data){
   let url = new URL(window.location.href);
   let sdk = url.searchParams.get('sdk');
 
-  //console.log(url.searchParams.get('version'));
-
   var version = url.searchParams.get('version');
   if(!version) {
     version = data.stable;
@@ -30,7 +28,3 @@ $.getJSON('version.json', function(data){
   //console.log(redir);
   window.location.replace(redir);
 });
-
-
-
-//alert("batman");
